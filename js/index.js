@@ -51,7 +51,10 @@ function newItem() {
     y: 0,
     speed: 0.8 + Math.random() * 1.2,
   };
-  items.push(item);
+  if (!onPause && !gameOver) {
+    items.push(item);
+  }
+  
 }
 
 function drawItems() {
