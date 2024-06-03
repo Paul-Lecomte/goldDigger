@@ -19,18 +19,24 @@ let gameOver = false;
 let onPause = false;
 let topScore = localStorage.getItem('topScore') || 0;
 
+// Précharger les images
+const bgImage = new Image();
+bgImage.src = '../assets/bg.jpg';
+
+const characterImage = new Image();
+characterImage.src = '../assets/minecart.png';
+
+const itemImage = new Image();
+itemImage.src = '../assets/gold.png';
+
 function drawBackground(){
-    base_image = new Image();
-    base_image.src = "../assets/bg.jpg"
-    ctx.drawImage(base_image, 0, 0, canvas.width, canvas.height)
+    ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height)
 }
 
 function drawCharacter() {
-  base_image = new Image();
-  base_image.src = '../assets/minecart.png';
-  ctx.fillStyle = 'transparent';
-  ctx.fillRect(character.x, character.y, character.width, character.height);
-  ctx.drawImage(base_image, character.x, character.y, character.width, character.height)
+  //ctx.fillStyle = 'transparent';
+  //ctx.fillRect(character.x, character.y, character.width, character.height);
+  ctx.drawImage(characterImage, character.x, character.y, character.width, character.height)
 }
 
 function clear() {
@@ -50,9 +56,7 @@ function newItem() {
 
 function drawItems() {
   items.forEach(item => {
-    base_image = new Image();
-    base_image.src = '../assets/gold.png';
-    ctx.drawImage(base_image, item.x, item.y, item.width, item.height)
+    ctx.drawImage(itemImage, item.x, item.y, item.width, item.height)
   });
 }
 
